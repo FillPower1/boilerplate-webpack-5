@@ -1,0 +1,21 @@
+:root {
+    --mainColor: rebeccapurple;
+}
+
+.wrapper {
+    width: 400px;
+    height: 400px;
+    background-color: var(--mainColor);
+
+    & .img {
+        width: 100%;
+        height: 200px;
+        border-radius: 50%;
+    }
+
+}
+
+.test {
+    font-size: 18px;
+    color: var(--mainColor);
+}
