@@ -1,13 +1,18 @@
-const postcssPresetEnv = require('postcss-preset-env')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const cssnano = require('cssnano')
 
 const loadPostCss = ({ sourceMap = false, minify = false } = { sourceMap: false, minify: false }) => {
     const plugins = [
-        // цепочка плагинов postcss
-        postcssPresetEnv({
-            stage: 0, // default stage 2
-        }),
+        require('postcss-import'),
+        require('postcss-nested'),
+        [
+            'postcss-preset-env',
+            {
+                stage: 0, // default stage 2
+                autoprefixer: true,
+                preserve: false
+            }
+        ]
     ]
 
     if (minify) {
@@ -17,9 +22,9 @@ const loadPostCss = ({ sourceMap = false, minify = false } = { sourceMap: false,
     return {
         loader: 'postcss-loader',
         options: {
+            sourceMap,
             postcssOptions: {
-                sourceMap,
-                plugins,
+                plugins
             },
         },
     }
@@ -30,9 +35,12 @@ const loadCss = ({ sourceMap = false } = { sourceMap: false }) => {
         loader: 'css-loader',
         options: {
             modules: {
-                localIdentName: process.env.NODE_ENV === 'development'
-                    ? '[path][name]__[local]--[hash:base64:5]'
-                    : '[hash:base64:8]'
+                localIdentName:
+                    process.env.NODE_ENV === 'development'
+                        ? '[path][name]__[local]--[hash:base64:5]'
+                        : '[hash:base64:8]',
+                exportLocalsConvention: 'camelCase',
+                exportOnlyLocals: false
             },
             sourceMap,
         },

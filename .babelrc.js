@@ -15,11 +15,6 @@ module.exports = (api) => {
         ]
     ]
 
-    // if (env === 'development') {
-    //     console.log('ENV', env)
-    //     plugins.push('react-hot-loader/babel')
-    // }
-
     return {
         presets: [
             '@babel/preset-react',

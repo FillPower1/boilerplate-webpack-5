@@ -6,6 +6,7 @@
     width: 400px;
     height: 400px;
     background-color: var(--mainColor);
+    transform: translateX(10px);
 
     & .img {
         width: 100%;

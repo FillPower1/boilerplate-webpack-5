@@ -20,6 +20,7 @@ module.exports = merge(
             port: 8080,
             quiet: false
         },
+        target: 'web', // only for development
     },
     loadDevCss()
 )
