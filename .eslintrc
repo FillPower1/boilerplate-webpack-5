@@ -13,6 +13,8 @@
         "object-curly-spacing": "off",
         "no-unused-vars": "warn",
         "arrow-parens": "off",
-        "no-promise-executor-return": "off"
+        "no-promise-executor-return": "off",
+        "operator-linebreak": "off",
+        "capitalized-comments": "off"
     }
 }
