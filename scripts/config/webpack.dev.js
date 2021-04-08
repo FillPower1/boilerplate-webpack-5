@@ -12,7 +12,7 @@ module.exports = merge(
         devtool: 'eval-cheap-module-source-map',
         devServer: {
             contentBase: BUILD_DIRECTORY,
-            open: true,
+            open: false,
             compress: true,
             hot: true,
             overlay: true,
@@ -20,7 +20,7 @@ module.exports = merge(
             port: 8080,
             quiet: false
         },
-        target: 'web', // only for development
+        target: 'web' // only for development
     },
     loadDevCss()
 )
