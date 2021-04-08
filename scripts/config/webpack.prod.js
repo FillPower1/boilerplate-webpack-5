@@ -27,7 +27,7 @@ module.exports = merge(
                 patterns: [
                     {
                         from: path.resolve(__dirname, '../../static/assets'),
-                        to: path.resolve(__dirname, '../../target/assets')
+                        to: path.resolve(__dirname, '../../build/assets')
                     },
                 ]
             })
