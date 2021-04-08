@@ -3,7 +3,6 @@ import React from 'react'
 import style from './style.css'
 
 class App extends React.Component {
-
     state = {
         text: 'Hello World'
     }
@@ -19,7 +18,6 @@ class App extends React.Component {
     }
 
     render() {
-
         return (
             <div onClick={this.handleClick}>
                 <div className={style.test}>{this.state.text}</div>

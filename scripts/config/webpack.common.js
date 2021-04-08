@@ -2,19 +2,16 @@ const { SOURCE_DIRECTORY, BUILD_DIRECTORY } = require('../constants')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-const IS_DEV = process.env.NODE_ENV === 'development'
-
 module.exports = {
     entry: [SOURCE_DIRECTORY],
     output: {
-        filename: IS_DEV ? 'js/[name].bundle.js' : 'js/[name].[contenthash].[id].js',
         path: BUILD_DIRECTORY,
         publicPath: '/',
-        hashDigestLength: 5,
+        hashDigestLength: 5
     },
     mode: 'none',
     resolve: {
-        extensions: ['.jsx', '.js'],
+        extensions: ['.jsx', '.js']
     },
     module: {
         rules: [
@@ -24,15 +21,15 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'images/[name]-[hash:5].[ext]',
-                        },
-                    },
-                ],
+                            name: 'images/[name]-[hash:5].[ext]'
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: 'babel-loader',
+                use: 'babel-loader'
             },
             {
                 test: /\.(woff(2)?|eot|ttf|otf|)$/,
@@ -44,8 +41,8 @@ module.exports = {
                         }
                     }
                 ]
-            },
-        ],
+            }
+        ]
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -53,7 +50,7 @@ module.exports = {
             filename: 'index.html',
             template: './static/index.html',
             title: 'Boilerplate 🚀',
-            minify: false,
+            minify: false
         })
-    ],
+    ]
 }

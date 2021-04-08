@@ -1,6 +1,6 @@
 const { merge } = require('webpack-merge')
 
-const { loadDevCss } = require('../utils/css')
+const { loadDevCss } = require('../css')
 const { BUILD_DIRECTORY } = require('../constants')
 
 const commonConfig = require('./webpack.common')
@@ -8,6 +8,9 @@ const commonConfig = require('./webpack.common')
 module.exports = merge(
     commonConfig,
     {
+        output: {
+            filename: 'js/[name].bundle.js'
+        },
         mode: 'development',
         devtool: 'eval-cheap-module-source-map',
         devServer: {
